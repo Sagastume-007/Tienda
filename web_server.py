@@ -96,7 +96,7 @@ def html_page(title, body_html):
         "          .search-bar input[name='buscar'] { max-width: 55%; padding: 6px 8px; font-size:14px; }\n"
         "          .search-bar .btn { padding: 8px 12px; font-size:14px; }\n"
 "          .catalog-table th, .catalog-table td { padding: 4px; font-size: 12px; box-sizing: border-box; }\n"
-"          .catalog-table th:nth-child(1), .catalog-table td:nth-child(1) { width: 18%; white-space: nowrap; }\n"
+"          .catalog-table th:nth-child(1), .catalog-table td:nth-child(1) { width: 12%; white-space: nowrap; }\n"
 "          .catalog-table th:nth-child(2), .catalog-table td:nth-child(2) { width: 50%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\n"
 "          .catalog-table th:nth-child(3), .catalog-table td:nth-child(3) { width: 16%; text-align: right; white-space: nowrap; }\n"
 "          .catalog-table th:nth-child(4), .catalog-table td:nth-child(4) { width: 12%; text-align:center; }\n"
