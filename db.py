@@ -214,34 +214,48 @@ def obtener_info_producto(codigo):
     conn = conectar()
     cur = conn.cursor()
     
-    placeholder = "%s" if USE_POSTGRES else "?"
-    
-    # Intentar por código de barras
-    cur.execute(
-        f"SELECT id_producto, nombre, precio, impuesto, pesable FROM productos WHERE codigo_barras = {placeholder}",
-        (codigo,)
-    )
-    result = cur.fetchone()
-    
-    # Si no se encuentra, intentar por ID
-    if not result:
-        try:
-            id_prod = int(codigo)
-            cur.execute(
-                f"SELECT id_producto, nombre, precio, impuesto, pesable FROM productos WHERE id_producto = {placeholder}",
-                (id_prod,)
-            )
-            result = cur.fetchone()
-        except ValueError:
-            pass
+    if USE_POSTGRES:
+        # Intentar por código de barras
+        cur.execute(
+            "SELECT id_producto, nombre, precio, impuesto, pesable FROM productos WHERE codigo_barras = %s",
+            (codigo,)
+        )
+        result = cur.fetchone()
+        
+        # Si no se encuentra, intentar por ID
+        if not result:
+            try:
+                id_prod = int(codigo)
+                cur.execute(
+                    "SELECT id_producto, nombre, precio, impuesto, pesable FROM productos WHERE id_producto = %s",
+                    (id_prod,)
+                )
+                result = cur.fetchone()
+            except ValueError:
+                pass
+    else:
+        # SQLite
+        cur.execute(
+            "SELECT id_producto, nombre, precio, impuesto, pesable FROM productos WHERE codigo_barras = ?",
+            (codigo,)
+        )
+        result = cur.fetchone()
+        
+        if not result:
+            try:
+                id_prod = int(codigo)
+                cur.execute(
+                    "SELECT id_producto, nombre, precio, impuesto, pesable FROM productos WHERE id_producto = ?",
+                    (id_prod,)
+                )
+                result = cur.fetchone()
+            except ValueError:
+                pass
     
     conn.close()
     
     if result:
-        if USE_POSTGRES:
-            return (result[0], result[1], result[2], result[3], result[4])
-        else:
-            return result
+        return (result[0], result[1], result[2], result[3], result[4])
     return None
 
 def obtener_max_factura():
