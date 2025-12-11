@@ -35,7 +35,7 @@ def html_page(title, body_html):
         "        body { font-family: Segoe UI, Arial, sans-serif; background: #ffffff; color: var(--texto); margin: 0; }\n"
         "        header { background: #f1faee; border-bottom: 2px solid var(--primario); padding: 12px 16px; }\n"
         "        header a { text-decoration: none; color: var(--texto); font-weight: bold; }\n"
-        "        .container { width: 100%; max-width: 100vw; margin: 0; background: #fff; padding: 16px 16px; border: none; border-radius: 0; box-sizing: border-box; overflow-x: visible; min-height: 100vh; }\n"
+        "        .container { width: 100%; max-width: 100vw; margin: 0; background: #fff; padding: 16px 16px; border: none; border-radius: 0; box-sizing: border-box; overflow-x: visible; min-height: 100vh; display: flex; flex-direction: column; }\n"
         "        table { width: 100%; border-collapse: collapse; }\n"
         "        th, td { padding: 8px; border-bottom: 1px solid #eee; text-align: left; }\n"
         "        th { background: #FFF9E6; color: #2E7D32; }\n"
@@ -62,7 +62,7 @@ def html_page(title, body_html):
         "        .act-btn .label { font-size:12px; }\n"
         "        .catalog-table, .catalog-table tbody tr { touch-action: manipulation; }\n"
         "        .table-wrap { overflow-x: auto; }\n"
-        "        .productos-wrap { max-height: 60vh; overflow-y: auto; overflow-x: hidden; position: relative; scrollbar-width: thin; }\n"
+        "        .productos-wrap { flex: 1; min-height: 0; overflow-y: auto; overflow-x: hidden; position: relative; scrollbar-width: thin; }\n"
         "        .productos-wrap::-webkit-scrollbar { height: 6px; }\n"
         "        .productos-table thead th { position: sticky; top: 0; z-index: 2; background: #FFF9E6; }\n"
         "        .ventas-cart { background-color: #FFE5F0; }\n"
@@ -365,7 +365,6 @@ def html_page(title, body_html):
         "</body>\n"
         "</html>\n"
     ).encode("utf-8")
-
 
 def parse_body(environ):
     try:
