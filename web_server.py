@@ -92,7 +92,7 @@ def html_page(title, body_html):
 "          body { padding-bottom: 92px; }\n"
 "          .actions-col { position: fixed; left: 0; right: 0; bottom: 0; background: #ffffff; border-top: 1px solid var(--borde); box-shadow: 0 -2px 8px rgba(0,0,0,0.06); padding: 10px 12px; z-index: 999; flex-direction: row; gap: 8px; justify-content: space-between; }\n"
 "          .act-btn { width: 100%; max-width: 120px; height: 60px; font-size:16px; touch-action: manipulation; }\n"
-        "          .catalog-table { table-layout: fixed; width: 100%; }\n"
+        "          .catalog-table { table-layout: fixed; width: 90%; }\n"
         "          .search-bar input[name='buscar'] { max-width: 55%; padding: 6px 8px; font-size:14px; }\n"
         "          .search-bar .btn { padding: 8px 12px; font-size:14px; }\n"
 "          .catalog-table th, .catalog-table td { padding: 4px; font-size: 12px; box-sizing: border-box; }\n"
