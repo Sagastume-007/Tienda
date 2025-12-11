@@ -359,7 +359,26 @@ def html_page(title, body_html):
         "        payForm.addEventListener('submit', function(e){ if(e && e.cancelable){ e.preventDefault(); } if(backdrop){ backdrop.style.display='flex'; } calc(); });\n"
         "      }\n"
         "      if(pmCancel){ pmCancel.addEventListener('click', function(){ if(backdrop){ backdrop.style.display='none'; } }); }\n"
-        "      if(pmConfirm){ pmConfirm.addEventListener('click', function(){ var inpMetodo = payForm.querySelector(\"input[name='metodo_pago']\"); var inpCliente = payForm.querySelector(\"input[name='cliente']\"); var inpEf = payForm.querySelector(\"input[name='efectivo']\"); if(inpMetodo){ inpMetodo.value = pmMetodo ? pmMetodo.value : 'Efectivo'; } if(inpCliente){ inpCliente.value = pmCliente ? pmCliente.value : 'CLIENTE WEB'; } if(inpEf){ inpEf.value = pmEfectivo ? pmEfectivo.value : ''; } backdrop.style.display='none'; payForm.submit(); }); }\n"
+        "      if(pmConfirm){ pmConfirm.addEventListener('click', function(){ 
+                 var inpMetodo = payForm.querySelector(\"input[name='metodo_pago']\"); 
+                 var inpCliente = payForm.querySelector(\"input[name='cliente']\"); 
+                 var inpEf = payForm.querySelector(\"input[name='efectivo']\"); 
+                 if(inpMetodo){ inpMetodo.value = pmMetodo ? pmMetodo.value : 'Efectivo'; } 
+                 if(inpCliente){ inpCliente.value = pmCliente ? pmCliente.value : 'CLIENTE WEB'; } 
+                 if(inpEf){ inpEf.value = pmEfectivo ? pmEfectivo.value : ''; } 
+                 
+                 // Calcular cambio
+                 var ef = parseFloat(pmEfectivo.value.replace(',','.')) || 0;
+                 var tot = parseFloat(modal.getAttribute('data-total')||'0');
+                 var cambio = ef - tot;
+                 var mensaje = cambio >= 0 ? 'Cambio: L ' + cambio.toFixed(2) : 'Pago insuficiente';
+                 
+                 // Mostrar alerta con el cambio
+                 alert(mensaje);
+                 
+                 backdrop.style.display='none'; 
+                 payForm.submit(); 
+               }); }\n"
         "    });\n"
         "    </script>\n"
         "</body>\n"
