@@ -314,16 +314,26 @@ def actualizar_stock(conn, codigo_producto, cantidad_vendida):
     """Actualizar el stock de un producto"""
     cur = conn.cursor()
     
-    placeholder = "%s" if USE_POSTGRES else "?"
-    
     try:
         id_prod = int(codigo_producto)
-        cur.execute(
-            f"UPDATE productos SET stock = stock - {placeholder} WHERE id_producto = {placeholder}",
-            (cantidad_vendida, id_prod)
-        )
+        if USE_POSTGRES:
+            cur.execute(
+                "UPDATE productos SET stock = stock - %s WHERE id_producto = %s",
+                (cantidad_vendida, id_prod)
+            )
+        else:
+            cur.execute(
+                "UPDATE productos SET stock = stock - ? WHERE id_producto = ?",
+                (cantidad_vendida, id_prod)
+            )
     except ValueError:
-        cur.execute(
-            f"UPDATE productos SET stock = stock - {placeholder} WHERE codigo_barras = {placeholder}",
-            (cantidad_vendida, codigo_producto)
-        )
+        if USE_POSTGRES:
+            cur.execute(
+                "UPDATE productos SET stock = stock - %s WHERE codigo_barras = %s",
+                (cantidad_vendida, codigo_producto)
+            )
+        else:
+            cur.execute(
+                "UPDATE productos SET stock = stock - ? WHERE codigo_barras = ?",
+                (cantidad_vendida, codigo_producto)
+            )
