@@ -261,7 +261,7 @@ def html_page(title, body_html):
         "          .ventas-cart th:nth-child(2), .ventas-cart td:nth-child(2) { width: 38%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\n"
         "          .ventas-cart th:nth-child(3), .ventas-cart td:nth-child(3) { width: 14%; white-space: nowrap; }\n"
         "          .ventas-cart th:nth-child(4), .ventas-cart td:nth-child(4) { width: 12%; text-align: center; white-space: nowrap; }\n"
-        "          .ventas-cart th:nth-child(5), .ventas-cart td:nth-child(5) { width: 40%; white-space: nowrap; }\n"
+        "          .ventas-cart th:nth-child(5), .ventas-cart td:nth-child(5) { width: 40%; text-align: right; white-space: nowrap; }\n"
         "          .productos-table { table-layout: fixed; width: 100%; }\n"
         "          .productos-table th, .productos-table td { padding: 3px; font-size: 10px; box-sizing: border-box; }\n"
         "          .productos-table th:nth-child(1), .productos-table td:nth-child(1) { width: 12%; white-space: nowrap; }\n"
