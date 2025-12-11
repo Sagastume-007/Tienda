@@ -1,6 +1,5 @@
 import sqlite3
 import os
-USE_POSTGRES = os.environ.get('DATABASE_URL') is not None
 import random
 import string
 from wsgiref.simple_server import make_server
@@ -139,7 +138,7 @@ def html_page(title, body_html):
 "        }\n"
         "        @media (max-width: 480px) {\n"
         "          .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }\n"
-        "          .catalog-table { table-layout: fixed; width: 90%; }\n"
+        "          .catalog-table { table-layout: fixed; width: 100%; }\n"
         "          .search-bar input[name='buscar'] { max-width: 52%; padding: 4px 6px; font-size:12px; }\n"
         "          .search-bar .btn { padding: 6px 10px; font-size:12px; }\n"
 "          .catalog-table th, .catalog-table td { padding: 3px; font-size: 10px; box-sizing: border-box; }\n"
@@ -262,10 +261,10 @@ def html_page(title, body_html):
         "          .ventas-cart th:nth-child(2), .ventas-cart td:nth-child(2) { width: 38%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\n"
         "          .ventas-cart th:nth-child(3), .ventas-cart td:nth-child(3) { width: 14%; white-space: nowrap; }\n"
         "          .ventas-cart th:nth-child(4), .ventas-cart td:nth-child(4) { width: 12%; text-align: center; white-space: nowrap; }\n"
-        "          .ventas-cart th:nth-child(5), .ventas-cart td:nth-child(5) { width: 40%; text-align: right;white-space: nowrap; }\n"
+        "          .ventas-cart th:nth-child(5), .ventas-cart td:nth-child(5) { width: 40%; white-space: nowrap; }\n"
         "          .productos-table { table-layout: fixed; width: 100%; }\n"
         "          .productos-table th, .productos-table td { padding: 3px; font-size: 10px; box-sizing: border-box; }\n"
-        "          .productos-table th:nth-child(1), .productos-table td:nth-child(1) { width: 10%; white-space: nowrap; }\n"
+        "          .productos-table th:nth-child(1), .productos-table td:nth-child(1) { width: 12%; white-space: nowrap; }\n"
         "          .productos-table th:nth-child(2), .productos-table td:nth-child(2) { width: 36%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\n"
         "          .productos-table th:nth-child(3), .productos-table td:nth-child(3) { width: 20%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\n"
         "          .productos-table th:nth-child(4), .productos-table td:nth-child(4) { width: 12%; text-align: right; white-space: nowrap; }\n"
@@ -359,26 +358,7 @@ def html_page(title, body_html):
         "        payForm.addEventListener('submit', function(e){ if(e && e.cancelable){ e.preventDefault(); } if(backdrop){ backdrop.style.display='flex'; } calc(); });\n"
         "      }\n"
         "      if(pmCancel){ pmCancel.addEventListener('click', function(){ if(backdrop){ backdrop.style.display='none'; } }); }\n"
-        "      if(pmConfirm){ pmConfirm.addEventListener('click', function(){ 
-                 var inpMetodo = payForm.querySelector(\"input[name='metodo_pago']\"); 
-                 var inpCliente = payForm.querySelector(\"input[name='cliente']\"); 
-                 var inpEf = payForm.querySelector(\"input[name='efectivo']\"); 
-                 if(inpMetodo){ inpMetodo.value = pmMetodo ? pmMetodo.value : 'Efectivo'; } 
-                 if(inpCliente){ inpCliente.value = pmCliente ? pmCliente.value : 'CLIENTE WEB'; } 
-                 if(inpEf){ inpEf.value = pmEfectivo ? pmEfectivo.value : ''; } 
-                 
-                 // Calcular cambio
-                 var ef = parseFloat(pmEfectivo.value.replace(',','.')) || 0;
-                 var tot = parseFloat(modal.getAttribute('data-total')||'0');
-                 var cambio = ef - tot;
-                 var mensaje = cambio >= 0 ? 'Cambio: L ' + cambio.toFixed(2) : 'Pago insuficiente';
-                 
-                 // Mostrar alerta con el cambio
-                 alert(mensaje);
-                 
-                 backdrop.style.display='none'; 
-                 payForm.submit(); 
-               }); }\n"
+        "      if(pmConfirm){ pmConfirm.addEventListener('click', function(){ var inpMetodo = payForm.querySelector(\"input[name='metodo_pago']\"); var inpCliente = payForm.querySelector(\"input[name='cliente']\"); var inpEf = payForm.querySelector(\"input[name='efectivo']\"); if(inpMetodo){ inpMetodo.value = pmMetodo ? pmMetodo.value : 'Efectivo'; } if(inpCliente){ inpCliente.value = pmCliente ? pmCliente.value : 'CLIENTE WEB'; } if(inpEf){ inpEf.value = pmEfectivo ? pmEfectivo.value : ''; } backdrop.style.display='none'; payForm.submit(); }); }\n"
         "    });\n"
         "    </script>\n"
         "</body>\n"
