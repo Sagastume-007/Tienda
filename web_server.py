@@ -1,5 +1,6 @@
 import sqlite3
 import os
+USE_POSTGRES = os.environ.get('DATABASE_URL') is not None
 import random
 import string
 from wsgiref.simple_server import make_server
@@ -713,11 +714,25 @@ def app(environ, start_response):
             buscar = (qs.get('buscar', [''])[0]).strip()
             conn = conectar()
             cur = conn.cursor()
-            if buscar:
-                like = '%' + buscar.lower() + '%'
-                cur.execute("SELECT id_producto, nombre, codigo_barras, precio, impuesto, stock, pesable FROM productos WHERE LOWER(nombre) LIKE ? OR LOWER(codigo_barras) LIKE ? OR CAST(id_producto AS TEXT) LIKE ? ORDER BY nombre LIMIT 500", (like, like, like))
+        if buscar:
+            like = '%' + buscar.lower() + '%'
+            if USE_POSTGRES:
+                cur.execute("""
+                    SELECT id_producto, nombre, codigo_barras, precio, impuesto, stock, pesable 
+                    FROM productos 
+                    WHERE LOWER(nombre) LIKE %s OR LOWER(codigo_barras) LIKE %s OR CAST(id_producto AS TEXT) LIKE %s 
+                    ORDER BY nombre LIMIT 500
+                """, (like, like, like))
             else:
-                cur.execute("SELECT id_producto, nombre, codigo_barras, precio, impuesto, stock, pesable FROM productos ORDER BY nombre LIMIT 500")
+                cur.execute("""
+                    SELECT id_producto, nombre, codigo_barras, precio, impuesto, stock, pesable 
+                    FROM productos 
+                    WHERE LOWER(nombre) LIKE ? OR LOWER(codigo_barras) LIKE ? OR CAST(id_producto AS TEXT) LIKE ? 
+                    ORDER BY nombre LIMIT 500
+                """, (like, like, like))
+        else:
+            cur.execute("SELECT id_producto, nombre, codigo_barras, precio, impuesto, stock, pesable FROM productos ORDER BY nombre LIMIT 500")
+
             rows = cur.fetchall() or []
             conn.close()
             body = productos_list_html(rows, buscar_text=buscar)
