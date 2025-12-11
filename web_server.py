@@ -76,207 +76,22 @@ def html_page(title, body_html):
         "        .modal .row { display: flex; gap: 8px; align-items: center; margin: 6px 0; }\n"
         "        .modal .row label { min-width: 92px; }\n"
         "        .modal .actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 12px; }\n"
-"        @media (max-width: 768px) {\n"
-"          .layout { grid-template-columns: 1fr; }\n"
-"          .grid { grid-template-columns: 1fr; }\n"
-"          .grid { gap: 6px; }\n"
-"          table { min-width: 0; }\n"
-"          .container { padding: 8px 8px; }\n"
-"          .banner { flex-direction: column; gap: 8px; }\n"
-"          .banner h1 { font-size: 18pt; }\n"
-"          #lbl-total { position: static; margin-top: 6px; font-size: 18pt; }\n"
-"          th, td { padding: 10px; }\n"
-"          label { font-size: 14px; }\n"
-"          input, select { padding: 6px; }\n"
-"          .panel { padding: 8px; }\n"
-"          body { padding-bottom: 92px; }\n"
-"          .actions-col { position: fixed; left: 0; right: 0; bottom: 0; background: #ffffff; border-top: 1px solid var(--borde); box-shadow: 0 -2px 8px rgba(0,0,0,0.06); padding: 10px 12px; z-index: 999; flex-direction: row; gap: 8px; justify-content: space-between; }\n"
-"          .act-btn { width: 100%; max-width: 120px; height: 60px; font-size:16px; touch-action: manipulation; }\n"
-        "          .catalog-table { table-layout: fixed; width: 100%; }\n"
-        "          .search-bar input[name='buscar'] { max-width: 55%; padding: 6px 8px; font-size:14px; }\n"
-        "          .search-bar .btn { padding: 8px 12px; font-size:14px; }\n"
-"          .catalog-table th, .catalog-table td { padding: 4px; font-size: 12px; box-sizing: border-box; }\n"
-"          .catalog-table th:nth-child(1), .catalog-table td:nth-child(1) { width: 18%; white-space: nowrap; }\n"
-"          .catalog-table th:nth-child(2), .catalog-table td:nth-child(2) { width: 50%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\n"
-"          .catalog-table th:nth-child(3), .catalog-table td:nth-child(3) { width: 16%; text-align: right; white-space: nowrap; }\n"
-"          .catalog-table th:nth-child(4), .catalog-table td:nth-child(4) { width: 12%; text-align:center; }\n"
-"          .catalog-table .btn { padding: 3px 6px; font-size: 12px; }\n"
-"          .ventas-cart { table-layout: fixed; width: 100%; }"
-"          .ventas-cart th, .ventas-cart td { padding: 3px; font-size: 11px; box-sizing: border-box; }"
-"          .ventas-cart th:nth-child(1), .ventas-cart td:nth-child(1) { width: 12%; white-space: nowrap; }"
-"          .ventas-cart th:nth-child(2), .ventas-cart td:nth-child(2) { width: 30%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }"
-"          .ventas-cart th:nth-child(3), .ventas-cart td:nth-child(3) { width: 14%; white-space: nowrap; }"
-"          .ventas-cart th:nth-child(3) { padding-left: 0; }\n"
-"          .ventas-cart td:nth-child(3) { padding-left: 0; }\n"
-"          .ventas-cart th:nth-child(4), .ventas-cart td:nth-child(4) { width: 16%; text-align: right; white-space: nowrap; }"
-"          .ventas-cart th:nth-child(4) { padding-left: 0; }\n"
-"          .ventas-cart td:nth-child(4) { padding-left: 0; }\n"
-"          .ventas-cart th:nth-child(5), .ventas-cart td:nth-child(5) { width: 18%; text-align: right; white-space: nowrap; }"
-"          .ventas-cart td:nth-child(5) { overflow: visible; }\n"
-"          .ventas-cart th:nth-child(5) { padding-left: 0; }\n"
-"          .ventas-cart td:nth-child(5) { padding-left: 0; }\n"
-"          .ventas-cart input[name='cantidad'] { width: 52px; padding: 2px; font-size: inherit; font-family: inherit; color: inherit; }\n"
-"          .ventas-cart td { vertical-align: middle; overflow: hidden; }\n"
-"          .ventas-cart td:nth-child(5) { overflow: visible; }\n"
-"          .ventas-cart .btn { padding: 2px 6px; font-size: 11px; }\n"
-"          .ventas-cart td:nth-child(3) .qty { display:flex; align-items:center; gap: 4px; justify-content:flex-start; }\n"
-"          .ventas-cart td:nth-child(3) .qty { flex-wrap: nowrap; white-space: nowrap; }\n"
-"          .ventas-cart td:nth-child(3) .qty { gap: 2px; }\n"
-"          .ventas-cart td:nth-child(3) .value { min-width: 38px; text-align:center; display:inline-block; flex: 0 0 auto; }\n"
-"          .ventas-cart td:nth-child(3) .qty .btn { flex: 0 0 auto; }\n"
-"          .ventas-cart td:nth-child(5) .total { display:flex; align-items:center; gap: 4px; justify-content:flex-start; }\n"
-"          .ventas-cart td:nth-child(5) .total .value { min-width: 80px; text-align:right; display:inline-block; flex: 0 0 auto; }\n"
-"          .ventas-cart td:nth-child(5) { overflow: visible; }\n"
-"          .ventas-cart td:nth-child(5) .total .btn { flex: 0 0 auto; }\n"
-"          .ventas-cart td:nth-child(5) .total .btn.qty-inc, .ventas-cart td:nth-child(5) .total .btn.qty-dec { font-size: 12px; }\n"
-"          .ventas-cart td:nth-child(5) .total .btn.qty-inc::after { content: ''; font-size: 0; line-height: 1; }\n"
-"          .ventas-cart td:nth-child(5) .total .btn.qty-dec::after { content: ''; font-size: 0; line-height: 1; }\n"
-"          .ventas-cart .btn.danger { font-size: 0; }\n"
-"          .ventas-cart .btn.danger::after { content: ''; font-size: 0; line-height: 1; }\n"
-"          .ventas-cart td:nth-child(5) .total .btn svg { width: 13px; height: 13px; display:inline-block; }\n"
-"          .ventas-cart .btn.secondary { font-size: 0; }\n"
-"          .ventas-cart .btn.secondary::after { content: '\\21A9'; font-size: 13px; line-height: 1; }\n"
-"        }\n"
-        "        @media (max-width: 480px) {\n"
-        "          .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }\n"
-        "          .catalog-table { table-layout: fixed; width: 100%; }\n"
-        "          .search-bar input[name='buscar'] { max-width: 52%; padding: 4px 6px; font-size:12px; }\n"
-        "          .search-bar .btn { padding: 6px 10px; font-size:12px; }\n"
-"          .catalog-table th, .catalog-table td { padding: 3px; font-size: 10px; box-sizing: border-box; }\n"
-"          .catalog-table td.precio::before { content: 'L '; font-size: 10px; margin-right:2px; }\n"
-"          .catalog-table th:nth-child(1), .catalog-table td:nth-child(1) { width: 16%; white-space: nowrap; }\n"
-"          .catalog-table th:nth-child(2), .catalog-table td:nth-child(2) { width: 50%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\n"
-"          .catalog-table th:nth-child(3), .catalog-table td:nth-child(3) { width: 16%; text-align: right; white-space: nowrap; font-size:11px; }\n"
-"          .catalog-table th:nth-child(4), .catalog-table td:nth-child(4) { width: 8%; text-align:center; }\n"
-"          .catalog-table .btn { padding: 2px 6px; font-size: 0; }\n"
-"          .catalog-table .btn::after { content: '+'; font-size: 14px; line-height: 1; }\n"
-"          .ventas-cart { table-layout: fixed; width: 100%; }\n"
-"          .ventas-cart th, .ventas-cart td { padding: 2px; font-size: 10px; box-sizing: border-box; }\n"
-"          .ventas-cart th:nth-child(1), .ventas-cart td:nth-child(1) { width: 12%; white-space: nowrap; }\n"
-"          .ventas-cart th:nth-child(2), .ventas-cart td:nth-child(2) { width: 50%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\n"
-"          .ventas-cart th:nth-child(3), .ventas-cart td:nth-child(3) { width: 12%; white-space: nowrap; }\n"
-"          .ventas-cart th:nth-child(3) { padding-left: 0; }\n"
-"          .ventas-cart td:nth-child(3) { padding-left: 0; }\n"
-"          .ventas-cart th:nth-child(4), .ventas-cart td:nth-child(4) { width: 10%; text-align: right; white-space: nowrap; }\n"
-"          .ventas-cart th:nth-child(4) { padding-left: 0; }\n"
-"          .ventas-cart td:nth-child(4) { padding-left: 0; }\n"
-"          .ventas-cart th:nth-child(5), .ventas-cart td:nth-child(5) { width: 38%; white-space: nowrap; }\n"
-"          .ventas-cart th:nth-child(5) { padding-left: 0; text-align: left; transform: translateX(15px); }\n"
-"          .ventas-cart td:nth-child(5) { padding-left: 0; }\n"
-"          .ventas-cart td:nth-child(5) { text-align: right; }\n"
-"          .ventas-cart input[name='cantidad'] { width: 46px; padding: 2px; font-size: inherit; font-family: inherit; color: inherit; }\n"
-"          .ventas-cart td { vertical-align: middle; overflow: hidden; }\n"
-"          .ventas-cart td:nth-child(5) .total { gap: 4px; }\n"
-"          .ventas-cart td:nth-child(5) .total { justify-content:flex-end; margin-left: 0; }\n"
-"          .ventas-cart td:nth-child(5) .total .value { text-align:right; }\n"
-"          .ventas-cart td:nth-child(5) .total .btn.qty-inc, .ventas-cart td:nth-child(5) .total .btn.qty-dec { padding: 1px 4px; font-size: 0; }\n"
-"          .ventas-cart td:nth-child(5) .total .btn.qty-inc::after { content: ''; font-size: 0; line-height: 1; }\n"
-"          .ventas-cart td:nth-child(5) .total .btn.qty-dec::after { content: ''; font-size: 0; line-height: 1; }\n"
-"          .ventas-cart .btn.danger { font-size: 0; }\n"
-"          .ventas-cart .btn.danger::after { content: ''; font-size: 0; line-height: 1; }\n"
-"          .ventas-cart td:nth-child(5) .total .btn svg { width: 9px; height: 9px; display:inline-block; }\n"
-"          .ventas-cart .btn.secondary { font-size: 0; }\n"
-"          .ventas-cart .btn.secondary::after { content: '\\21A9'; font-size: 9px; line-height: 1; }\n"
-        "        }\n"
-        "        /* Desktop (>=769px) */\n"
-        "        @media (min-width: 769px) {\n"
-        "          .search-bar input[name='buscar'] { max-width: 40%; padding: 5px 6px; font-size: 8px; }\n"
-        "          .search-bar .btn { padding: 5px 8px; font-size: 8px; }\n"
-        "          .layout { grid-template-columns: 10fr 8fr 40px; }\n"
-        "          .catalog-table { table-layout: fixed; width: 100%; }\n"
-        "          .catalog-table th, .catalog-table td { padding: 8px; font-size: 10px; box-sizing: border-box; }\n"
-        "          .catalog-table th:nth-child(1), .catalog-table td:nth-child(1) { width: 18%; white-space: nowrap; }\n"
-        "          .catalog-table th:nth-child(2), .catalog-table td:nth-child(2) { width: 50%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\n"
-        "          .catalog-table th:nth-child(3), .catalog-table td:nth-child(3) { width: 16%; text-align: right; white-space: nowrap; }\n"
-        "          .catalog-table th:nth-child(4), .catalog-table td:nth-child(4) { width: 12%; text-align:center; }\n"
-        "          .catalog-table .btn { padding: 4px 3px; font-size: 7px; }\n"
-        "          .ventas-cart { table-layout: fixed; width: 100%; }\n"
-        "          .ventas-cart th, .ventas-cart td { padding: 8px; font-size: 10px; box-sizing: border-box; }\n"
-        "          .ventas-cart th:nth-child(1), .ventas-cart td:nth-child(1) { width: 12%; white-space: nowrap; }\n"
-        "          .ventas-cart th:nth-child(2), .ventas-cart td:nth-child(2) { width: 50%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\n"
-        "          .ventas-cart th:nth-child(3), .ventas-cart td:nth-child(3) { width: 12%; white-space: nowrap; }\n"
-        "          .ventas-cart th:nth-child(4), .ventas-cart td:nth-child(4) { width: 12%; text-align: right; white-space: nowrap; }\n"
-        "          .ventas-cart th:nth-child(5) { width: 30%; text-align: left; white-space: nowrap; }\n"
-        "          .ventas-cart td:nth-child(5) { width: 30%; text-align: right; white-space: nowrap; }\n"
-"          .ventas-cart .btn { padding: 3px 5px; font-size: 8px; }\n"
-        "          .ventas-cart td:nth-child(5) .total .btn svg { width: 8px; height: 8px; }\n"
-        "          .actions-col .act-btn { width: 30px; height: 30px; }\n"
-        "          .actions-col .act-btn .icon svg { width: 22px; height: 22px; }\n"
-        "          .actions-col .act-btn .label { font-size: 11px; }\n"
-        "          .productos-table { table-layout: fixed; width: 100%; }\n"
-        "          .productos-table th, .productos-table td { padding: 6px; font-size: 12px; box-sizing: border-box; }\n"
-        "          .productos-table th:nth-child(1), .productos-table td:nth-child(1) { width: 8%; white-space: nowrap; }\n"
-        "          .productos-table th:nth-child(2), .productos-table td:nth-child(2) { width: 26%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\n"
-        "          .productos-table th:nth-child(3), .productos-table td:nth-child(3) { width: 18%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\n"
-        "          .productos-table th:nth-child(4), .productos-table td:nth-child(4) { width: 12%; text-align: right; white-space: nowrap; }\n"
-        "          .productos-table th:nth-child(5), .productos-table td:nth-child(5) { width: 8%; white-space: nowrap; }\n"
-        "          .productos-table th:nth-child(6), .productos-table td:nth-child(6) { width: 10%; white-space: nowrap; }\n"
-        "          .productos-table th:nth-child(7), .productos-table td:nth-child(7) { width: 8%; white-space: nowrap; }\n"
-        "          .productos-table th:nth-child(8), .productos-table td:nth-child(8) { width: 10%; white-space: nowrap; }\n"
-        "          .productos-table .actions .btn { padding: 4px 8px; font-size: 12px; }\n"
-        "          .productos-filter input[name='buscar'] { max-width: 50%; padding: 6px 8px; font-size: 12px; }\n"
-        "          .productos-filter .btn { padding: 6px 10px; font-size: 12px; }\n"
-        "          .productos-actions .btn { padding: 6px 10px; font-size: 12px; }\n"
-        "        }\n"
-        "        /* Tablet (<=768px) */\n"
         "        @media (max-width: 768px) {\n"
-        "          .catalog-table { table-layout: fixed; width: 100%; }\n"
-        "          .catalog-table th, .catalog-table td { padding: 4px; font-size: 12px; box-sizing: border-box; }\n"
-        "          .catalog-table th:nth-child(1), .catalog-table td:nth-child(1) { width: 18%; white-space: nowrap; }\n"
-        "          .catalog-table th:nth-child(2), .catalog-table td:nth-child(2) { width: 40%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\n"
-        "          .catalog-table th:nth-child(3), .catalog-table td:nth-child(3) { width: 16%; text-align: right; white-space: nowrap; }\n"
-        "          .catalog-table th:nth-child(4), .catalog-table td:nth-child(4) { width: 12%; text-align:center; }\n"
-        "          .ventas-cart { table-layout: fixed; width: 80%; }\n"
-        "          .ventas-cart th, .ventas-cart td { padding: 3px; font-size: 11px; box-sizing: border-box; }\n"
-        "          .ventas-cart th:nth-child(1), .ventas-cart td:nth-child(1) { width: 8%; white-space: nowrap; }\n"
-        "          .ventas-cart th:nth-child(2), .ventas-cart td:nth-child(2) { width: 35%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\n"
-        "          .ventas-cart th:nth-child(3), .ventas-cart td:nth-child(3) { width: 8%; white-space: nowrap; }\n"
-        "          .ventas-cart th:nth-child(4), .ventas-cart td:nth-child(4) { width: 8%; text-align: right; white-space: nowrap; }\n"
-        "          .ventas-cart th:nth-child(5), .ventas-cart td:nth-child(5) { width: 14%; text-align: right; white-space: nowrap; }\n"
-        "          .productos-table { table-layout: fixed; width: 100%; }\n"
-        "          .productos-table th, .productos-table td { padding: 4px; font-size: 11px; box-sizing: border-box; }\n"
-        "          .productos-table th:nth-child(1), .productos-table td:nth-child(1) { width: 10%; white-space: nowrap; }\n"
-        "          .productos-table th:nth-child(2), .productos-table td:nth-child(2) { width: 28%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\n"
-        "          .productos-table th:nth-child(3), .productos-table td:nth-child(3) { width: 20%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\n"
-        "          .productos-table th:nth-child(4), .productos-table td:nth-child(4) { width: 12%; text-align: right; white-space: nowrap; }\n"
-        "          .productos-table th:nth-child(5), .productos-table td:nth-child(5) { width: 8%; white-space: nowrap; }\n"
-        "          .productos-table th:nth-child(6), .productos-table td:nth-child(6) { width: 10%; white-space: nowrap; }\n"
-        "          .productos-table th:nth-child(7), .productos-table td:nth-child(7) { width: 6%; white-space: nowrap; }\n"
-        "          .productos-table th:nth-child(8), .productos-table td:nth-child(8) { width: 6%; white-space: nowrap; }\n"
-        "          .productos-table .actions .btn { padding: 4px 8px; font-size: 11px; }\n"
-        "          .productos-filter input[name='buscar'] { max-width: 60%; padding: 5px 7px; font-size: 11px; }\n"
-        "          .productos-filter .btn { padding: 5px 8px; font-size: 11px; }\n"
-        "          .productos-actions .btn { padding: 5px 8px; font-size: 11px; }\n"
-        "        }\n"
-        "        /* Móvil (<=480px) */\n"
-        "        @media (max-width: 480px) {\n"
-        "          .catalog-table { table-layout: fixed; width: 100%; }\n"
-        "          .catalog-table th, .catalog-table td { padding: 3px; font-size: 11px; box-sizing: border-box; }\n"
-        "          .catalog-table th:nth-child(1), .catalog-table td:nth-child(1) { width: 16%; white-space: nowrap; }\n"
-        "          .catalog-table th:nth-child(2), .catalog-table td:nth-child(2) { width: 50%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\n"
-        "          .catalog-table th:nth-child(3), .catalog-table td:nth-child(3) { width: 16%; text-align: right; white-space: nowrap; }\n"
-        "          .catalog-table th:nth-child(4), .catalog-table td:nth-child(4) { width: 8%; text-align:center; }\n"
-        "          .ventas-cart { table-layout: fixed; width: 100%; }\n"
-        "          .ventas-cart th, .ventas-cart td { padding: 2px; font-size: 10px; box-sizing: border-box; }\n"
-        "          .ventas-cart th:nth-child(1), .ventas-cart td:nth-child(1) { width: 14%; white-space: nowrap; }\n"
-        "          .ventas-cart th:nth-child(2), .ventas-cart td:nth-child(2) { width: 38%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\n"
-        "          .ventas-cart th:nth-child(3), .ventas-cart td:nth-child(3) { width: 14%; white-space: nowrap; }\n"
-        "          .ventas-cart th:nth-child(4), .ventas-cart td:nth-child(4) { width: 12%; text-align: center; white-space: nowrap; }\n"
-        "          .ventas-cart th:nth-child(5), .ventas-cart td:nth-child(5) { width: 40%; white-space: nowrap; }\n"
-        "          .productos-table { table-layout: fixed; width: 100%; }\n"
-        "          .productos-table th, .productos-table td { padding: 3px; font-size: 10px; box-sizing: border-box; }\n"
-        "          .productos-table th:nth-child(1), .productos-table td:nth-child(1) { width: 12%; white-space: nowrap; }\n"
-        "          .productos-table th:nth-child(2), .productos-table td:nth-child(2) { width: 36%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\n"
-        "          .productos-table th:nth-child(3), .productos-table td:nth-child(3) { width: 20%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\n"
-        "          .productos-table th:nth-child(4), .productos-table td:nth-child(4) { width: 12%; text-align: right; white-space: nowrap; }\n"
-        "          .productos-table th:nth-child(5), .productos-table td:nth-child(5) { width: 6%; white-space: nowrap; }\n"
-        "          .productos-table th:nth-child(6), .productos-table td:nth-child(6) { width: 6%; white-space: nowrap; }\n"
-        "          .productos-table th:nth-child(7), .productos-table td:nth-child(7) { width: 4%; white-space: nowrap; }\n"
-        "          .productos-table th:nth-child(8), .productos-table td:nth-child(8) { width: 4%; white-space: nowrap; }\n"
-        "          .productos-table .actions .btn { padding: 3px 6px; font-size: 10px; }\n"
-        "          .productos-filter input[name='buscar'] { max-width: 100%; padding: 4px 6px; font-size: 10px; }\n"
-        "          .productos-filter .btn { padding: 4px 6px; font-size: 10px; }\n"
-        "          .productos-actions .btn { padding: 4px 6px; font-size: 10px; }\n"
+        "          .layout { grid-template-columns: 1fr; }\n"
+        "          .grid { grid-template-columns: 1fr; }\n"
+        "          .grid { gap: 6px; }\n"
+        "          table { min-width: 0; }\n"
+        "          .container { padding: 8px 8px; }\n"
+        "          .banner { flex-direction: column; gap: 8px; }\n"
+        "          .banner h1 { font-size: 18pt; }\n"
+        "          #lbl-total { position: static; margin-top: 6px; font-size: 18pt; }\n"
+        "          th, td { padding: 10px; }\n"
+        "          label { font-size: 14px; }\n"
+        "          input, select { padding: 6px; }\n"
+        "          .panel { padding: 8px; }\n"
+        "          body { padding-bottom: 92px; }\n"
+        "          .actions-col { position: fixed; left: 0; right: 0; bottom: 0; background: #ffffff; border-top: 1px solid var(--borde); box-shadow: 0 -2px 8px rgba(0,0,0,0.06); padding: 10px 12px; z-index: 999; flex-direction: row; gap: 8px; justify-content: space-between; }\n"
+        "          .act-btn { width: 100%; max-width: 120px; height: 60px; font-size:16px; touch-action: manipulation; }\n"
         "        }\n"
         "    </style>\n"
         "</head>\n"
@@ -492,7 +307,7 @@ def producto_form_html(values=None, error_msg=None):
 
 
 # =====================
-# SESSIÃ“N Y UTILIDADES
+# SESIÓN Y UTILIDADES
 # =====================
 SESSIONS = {}
 
@@ -690,7 +505,6 @@ def app(environ, start_response):
         if set_cookie:
             headers = headers + [('Set-Cookie', set_cookie)]
         start_response(status, headers)
-        
 
     try:
         if path == '/health':
@@ -714,24 +528,25 @@ def app(environ, start_response):
             buscar = (qs.get('buscar', [''])[0]).strip()
             conn = conectar()
             cur = conn.cursor()
-        if buscar:
-            like = '%' + buscar.lower() + '%'
-            if USE_POSTGRES:
-                cur.execute("""
-                    SELECT id_producto, nombre, codigo_barras, precio, impuesto, stock, pesable 
-                    FROM productos 
-                    WHERE LOWER(nombre) LIKE %s OR LOWER(codigo_barras) LIKE %s OR CAST(id_producto AS TEXT) LIKE %s 
-                    ORDER BY nombre LIMIT 500
-                """, (like, like, like))
+            
+            if buscar:
+                like = '%' + buscar.lower() + '%'
+                if USE_POSTGRES:
+                    cur.execute("""
+                        SELECT id_producto, nombre, codigo_barras, precio, impuesto, stock, pesable 
+                        FROM productos 
+                        WHERE LOWER(nombre) LIKE %s OR LOWER(codigo_barras) LIKE %s OR CAST(id_producto AS TEXT) LIKE %s 
+                        ORDER BY nombre LIMIT 500
+                    """, (like, like, like))
+                else:
+                    cur.execute("""
+                        SELECT id_producto, nombre, codigo_barras, precio, impuesto, stock, pesable 
+                        FROM productos 
+                        WHERE LOWER(nombre) LIKE ? OR LOWER(codigo_barras) LIKE ? OR CAST(id_producto AS TEXT) LIKE ? 
+                        ORDER BY nombre LIMIT 500
+                    """, (like, like, like))
             else:
-                cur.execute("""
-                    SELECT id_producto, nombre, codigo_barras, precio, impuesto, stock, pesable 
-                    FROM productos 
-                    WHERE LOWER(nombre) LIKE ? OR LOWER(codigo_barras) LIKE ? OR CAST(id_producto AS TEXT) LIKE ? 
-                    ORDER BY nombre LIMIT 500
-                """, (like, like, like))
-        else:
-            cur.execute("SELECT id_producto, nombre, codigo_barras, precio, impuesto, stock, pesable FROM productos ORDER BY nombre LIMIT 500")
+                cur.execute("SELECT id_producto, nombre, codigo_barras, precio, impuesto, stock, pesable FROM productos ORDER BY nombre LIMIT 500")
 
             rows = cur.fetchall() or []
             conn.close()
@@ -762,16 +577,27 @@ def app(environ, start_response):
                 conn = conectar()
                 cur = conn.cursor()
                 if codigo:
-                    cur.execute("SELECT id_producto FROM productos WHERE codigo_barras = ?", (codigo,))
+                    if USE_POSTGRES:
+                        cur.execute("SELECT id_producto FROM productos WHERE codigo_barras = %s", (codigo,))
+                    else:
+                        cur.execute("SELECT id_producto FROM productos WHERE codigo_barras = ?", (codigo,))
+                    
                     if cur.fetchone():
                         conn.close()
                         _start('200 OK', [('Content-Type', 'text/html; charset=utf-8')])
                         vals = {'nombre': nombre, 'precio': f"{precio}", 'impuesto': impuesto, 'codigo_barras': codigo or '', 'stock': str(stock), 'pesable': ('Sí' if pesable==1 else 'No')}
                         return [html_page('Nuevo producto', producto_form_html(vals, 'El código de barras ya existe'))]
-                cur.execute(
-                    "INSERT INTO productos (nombre, codigo_barras, precio, impuesto, stock, pesable) VALUES (?,?,?,?,?,?)",
-                    (nombre, codigo, float(precio), imp_tag, int(stock), int(pesable))
-                )
+                
+                if USE_POSTGRES:
+                    cur.execute(
+                        "INSERT INTO productos (nombre, codigo_barras, precio, impuesto, stock, pesable) VALUES (%s, %s, %s, %s, %s, %s)",
+                        (nombre, codigo, float(precio), imp_tag, int(stock), int(pesable))
+                    )
+                else:
+                    cur.execute(
+                        "INSERT INTO productos (nombre, codigo_barras, precio, impuesto, stock, pesable) VALUES (?, ?, ?, ?, ?, ?)",
+                        (nombre, codigo, float(precio), imp_tag, int(stock), int(pesable))
+                    )
                 conn.commit()
                 conn.close()
                 _start('302 Found', [('Location', '/productos')])
@@ -782,7 +608,10 @@ def app(environ, start_response):
                 pid = to_int((qs.get('id', [''])[0]))
                 conn = conectar()
                 cur = conn.cursor()
-                cur.execute("SELECT id_producto, nombre, codigo_barras, precio, impuesto, stock, pesable FROM productos WHERE id_producto = ?", (pid,))
+                if USE_POSTGRES:
+                    cur.execute("SELECT id_producto, nombre, codigo_barras, precio, impuesto, stock, pesable FROM productos WHERE id_producto = %s", (pid,))
+                else:
+                    cur.execute("SELECT id_producto, nombre, codigo_barras, precio, impuesto, stock, pesable FROM productos WHERE id_producto = ?", (pid,))
                 r = cur.fetchone()
                 conn.close()
                 if not r:
@@ -820,17 +649,27 @@ def app(environ, start_response):
                 conn = conectar()
                 cur = conn.cursor()
                 if codigo:
-                    cur.execute("SELECT id_producto FROM productos WHERE codigo_barras = ?", (codigo,))
+                    if USE_POSTGRES:
+                        cur.execute("SELECT id_producto FROM productos WHERE codigo_barras = %s", (codigo,))
+                    else:
+                        cur.execute("SELECT id_producto FROM productos WHERE codigo_barras = ?", (codigo,))
                     r = cur.fetchone()
                     if r and int(r[0]) != int(pid):
                         conn.close()
                         _start('200 OK', [('Content-Type', 'text/html; charset=utf-8')])
                         vals = {'nombre': nombre, 'precio': f"{precio}", 'impuesto': impuesto, 'codigo_barras': codigo or '', 'stock': str(stock), 'pesable': ('Sí' if pesable==1 else 'No')}
                         return [html_page('Editar producto', producto_form_html(vals, 'El código de barras ya existe en otro producto'))]
-                cur.execute(
-                    "UPDATE productos SET nombre=?, codigo_barras=?, precio=?, impuesto=?, stock=?, pesable=? WHERE id_producto=?",
-                    (nombre, codigo, float(precio), imp_tag, int(stock), int(pesable), int(pid))
-                )
+                
+                if USE_POSTGRES:
+                    cur.execute(
+                        "UPDATE productos SET nombre=%s, codigo_barras=%s, precio=%s, impuesto=%s, stock=%s, pesable=%s WHERE id_producto=%s",
+                        (nombre, codigo, float(precio), imp_tag, int(stock), int(pesable), int(pid))
+                    )
+                else:
+                    cur.execute(
+                        "UPDATE productos SET nombre=?, codigo_barras=?, precio=?, impuesto=?, stock=?, pesable=? WHERE id_producto=?",
+                        (nombre, codigo, float(precio), imp_tag, int(stock), int(pesable), int(pid))
+                    )
                 conn.commit()
                 conn.close()
                 _start('302 Found', [('Location', '/productos')])
@@ -847,14 +686,15 @@ def app(environ, start_response):
             try:
                 conn = conectar()
                 cur = conn.cursor()
-                # Usar exactamente la consulta de /productos para consistencia
                 if buscar:
                     like = '%' + buscar.lower() + '%'
-                    cur.execute("SELECT id_producto, nombre, codigo_barras, precio, impuesto, stock, pesable FROM productos WHERE LOWER(nombre) LIKE ? OR LOWER(codigo_barras) LIKE ? OR CAST(id_producto AS TEXT) LIKE ? ORDER BY nombre LIMIT 500", (like, like, like))
+                    if USE_POSTGRES:
+                        cur.execute("SELECT id_producto, nombre, codigo_barras, precio, impuesto, stock, pesable FROM productos WHERE LOWER(nombre) LIKE %s OR LOWER(codigo_barras) LIKE %s OR CAST(id_producto AS TEXT) LIKE %s ORDER BY nombre LIMIT 500", (like, like, like))
+                    else:
+                        cur.execute("SELECT id_producto, nombre, codigo_barras, precio, impuesto, stock, pesable FROM productos WHERE LOWER(nombre) LIKE ? OR LOWER(codigo_barras) LIKE ? OR CAST(id_producto AS TEXT) LIKE ? ORDER BY nombre LIMIT 500", (like, like, like))
                 else:
                     cur.execute("SELECT id_producto, nombre, codigo_barras, precio, impuesto, stock, pesable FROM productos ORDER BY nombre LIMIT 500")
                 rows = cur.fetchall() or []
-                # Mapear a (id, nombre, precio, impuesto)
                 resultados = [(r[0], r[1], r[3], r[4]) for r in rows]
                 try:
                     print('VENTAS catálogo, buscar="' + (buscar or '') + '"; filas=', len(rows))
@@ -948,11 +788,14 @@ def app(environ, start_response):
                 asegurar_tabla_ventas_sqlite()
                 asegurar_tabla_facturas_sqlite()
                 conn = conectar()
-                # Limpiar previa (por si el nÃºmero existe)
                 try:
                     cur = conn.cursor()
-                    cur.execute("DELETE FROM ventas WHERE factura = ?", (numero,))
-                    cur.execute("DELETE FROM facturas WHERE factura = ?", (numero,))
+                    if USE_POSTGRES:
+                        cur.execute("DELETE FROM ventas WHERE factura = %s", (numero,))
+                        cur.execute("DELETE FROM facturas WHERE factura = %s", (numero,))
+                    else:
+                        cur.execute("DELETE FROM ventas WHERE factura = ?", (numero,))
+                        cur.execute("DELETE FROM facturas WHERE factura = ?", (numero,))
                 except Exception:
                     pass
                 for it in cart:
@@ -1016,7 +859,7 @@ def app(environ, start_response):
 
 if __name__ == '__main__':
     PORT = int(os.environ.get('PORT', 8000))
-    HOST = '0.0.0.0'  # Cambiar de '' a '0.0.0.0'
+    HOST = '0.0.0.0'
     
     httpd = make_server(HOST, PORT, app)
     print(f'Servidor web en http://{HOST}:{PORT}/')
@@ -1025,3 +868,4 @@ if __name__ == '__main__':
     except KeyboardInterrupt:
         print('\nServidor detenido')
         pass
+            
