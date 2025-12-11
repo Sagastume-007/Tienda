@@ -139,7 +139,7 @@ def html_page(title, body_html):
 "        }\n"
         "        @media (max-width: 480px) {\n"
         "          .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }\n"
-        "          .catalog-table { table-layout: fixed; width: 100%; }\n"
+        "          .catalog-table { table-layout: fixed; width: 90%; }\n"
         "          .search-bar input[name='buscar'] { max-width: 52%; padding: 4px 6px; font-size:12px; }\n"
         "          .search-bar .btn { padding: 6px 10px; font-size:12px; }\n"
 "          .catalog-table th, .catalog-table td { padding: 3px; font-size: 10px; box-sizing: border-box; }\n"
