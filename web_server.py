@@ -364,7 +364,10 @@ def _ventas_page_html(cart, buscar_text="", resultados=None, ok_msg=None, err_ms
         try:
             conn = conectar()
             cur = conn.cursor()
-            cur.execute("SELECT id_producto, nombre, precio, impuesto FROM productos ORDER BY nombre LIMIT 500")
+            if USE_POSTGRES:
+                cur.execute("SELECT id_producto, nombre, precio, impuesto FROM productos ORDER BY nombre LIMIT 500")
+            else:
+                cur.execute("SELECT id_producto, nombre, precio, impuesto FROM productos ORDER BY nombre LIMIT 500")
             rows = cur.fetchall() or []
             resultados = [(r[0], r[1], r[2], r[3]) for r in rows]
             conn.close()
@@ -868,4 +871,3 @@ if __name__ == '__main__':
     except KeyboardInterrupt:
         print('\nServidor detenido')
         pass
-            
