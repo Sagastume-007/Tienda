@@ -316,14 +316,15 @@ def html_page(title, body_html):
         "          sInput.addEventListener('keydown', function(e){\n"
         "            if(e.key === 'Enter'){\n"
         "              if(e && e.cancelable){ e.preventDefault(); }\n"
-        "              var q = (sInput.value || '').trim();\n"
-        "              if(!q){ return; }\n"
-        "              sInput.value = '';\n"
-        "              fetch('/ventas/agregar', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: 'codigo=' + encodeURIComponent(q) })\n"
-        "                .then(function(){ return fetch('/ventas'); })\n"
-        "                .then(function(r){ return r.text(); })\n"
-        "                .then(function(html){ document.body.innerHTML = html; sInput = document.querySelector(\".search-bar input[name='buscar']\"); if(sInput){ sInput.focus(); } })\n"
-        "                .catch(function(){ window.location.href = '/ventas'; });\n"
+        "             var q = (sInput.value || '').trim();
+                      if(!q){ return; }
+                      var searchTerm = q;
+                      sInput.value = '';
+                      fetch('/ventas/agregar?buscar=' + encodeURIComponent(searchTerm), { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: 'codigo=' + encodeURIComponent(searchTerm) })
+                        .then(function(){ return fetch('/ventas?buscar=' + encodeURIComponent(searchTerm)); })
+                        .then(function(r){ return r.text(); })
+                        .then(function(html){ document.body.innerHTML = html; sInput = document.querySelector(\".search-bar input[name='buscar']\"); if(sInput){ sInput.focus(); sInput.select(); } })
+                        .catch(function(){ window.location.href = '/ventas?buscar=' + encodeURIComponent(searchTerm); });
         "            }\n"
         "          });\n"
         "        }\n"
