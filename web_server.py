@@ -287,7 +287,6 @@ def html_page(title, body_html):
         "    </div>\n"
         "    <script>\n"
         "    document.addEventListener('DOMContentLoaded', function(){\n"
-        "    document.addEventListener('DOMContentLoaded', function(){\n"
         "      // Enfocar automáticamente el input de búsqueda\n"
         "      var sInput = document.querySelector(\".search-bar input[name='buscar']\");\n"
         "      if(sInput){ sInput.focus(); sInput.select(); }\n"
