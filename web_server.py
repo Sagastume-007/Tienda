@@ -912,17 +912,37 @@ def app(environ, start_response):
                 _start('302 Found', [('Location', '/ventas?err=Producto+no+encontrado')])
                 return [b'']
             pid, nombre, precio, isv_tag, pesable = info
-            session['cart'].append({
-                'id': pid,
-                'nombre': nombre,
-                'precio': float(precio),
-                'cantidad': float(cantidad),
-                'impuesto': int(isv_tag),
-                'pesable': int(pesable),
-            })
-            _start('302 Found', [('Location', '/ventas')])
+            
+            # Verificar si ya existe en el carrito
+            found = False
+            for item in session['cart']:
+                if item['id'] == pid:
+                    # Si es pesable, incrementar en 0.1kg, si no, incrementar en 1
+                    step = 0.1 if int(pesable) == 1 else 1.0
+                    item['cantidad'] = round(float(item['cantidad']) + step, 2)
+                    found = True
+                    break
+            
+            # Si no existe, agregarlo
+            if not found:
+                session['cart'].append({
+                    'id': pid,
+                    'nombre': nombre,
+                    'precio': float(precio),
+                    'cantidad': float(cantidad),
+                    'impuesto': int(isv_tag),
+                    'pesable': int(pesable),
+                })
+            
+            # Mantener el término de búsqueda si existe
+            buscar = qs.get('buscar', [''])[0].strip()
+            if buscar:
+                from urllib.parse import quote
+                _start('302 Found', [('Location', f'/ventas?buscar={quote(buscar)}')])
+            else:
+                _start('302 Found', [('Location', '/ventas')])
             return [b'']
-
+    
         if path == '/ventas/actualizar' and method == 'POST':
             idx = int(qs.get('idx', ['-1'])[0])
             form = parse_body(environ)
