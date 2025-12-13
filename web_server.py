@@ -326,7 +326,6 @@ def html_page(title, body_html):
         "                .catch(function(){ window.location.href = '/ventas'; });\n"
         "            }\n"
         "          });\n"
-        "          });\n"
         "        }\n"
         "      }\n"
         "      var pForm = document.querySelector('form.actions.productos-filter');\n"
