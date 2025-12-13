@@ -17,7 +17,8 @@ from db import (
     asegurar_tabla_facturas_sqlite,
     actualizar_stock,
 )
-
+# Define if using PostgreSQL (set to False for SQLite)
+USE_POSTGRES = os.environ.get('USE_POSTGRES', 'false').lower() == 'true'
 
 def html_page(title, body_html):
     return (
